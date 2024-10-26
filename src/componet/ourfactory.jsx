@@ -34,9 +34,7 @@ function OurFactory() {
           </div>
         </div>
       </div>
-      <a href="https://wa.me/6285213771747" className="whatsapp-link">
-        <img src="whatsapp-icon.png" alt="WhatsApp" />
-      </a>
+      <a href="https://wa.me/6285213771747" className="whatsapp-link"></a>
     </div>
   );
 }
