@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../img/Logo.png";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -27,7 +28,7 @@ const Navbar = () => {
   };
 
   const handleDropdownClick = () => {
-    setDropdownOpen(!dropdownOpen); // Toggle dropdown on click
+    setDropdownOpen(!dropdownOpen);
   };
 
   const drawerList = () => (
@@ -44,21 +45,20 @@ const Navbar = () => {
       />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/">
             <ListItemText primary="HOME" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/about">
             <ListItemText primary="ABOUT US" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/products">
             <ListItemText primary="PRODUK" />
           </ListItemButton>
         </ListItem>
-        {/* Static Product List */}
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemText primary="PAPAN PLAFON PVC" />
@@ -71,12 +71,12 @@ const Navbar = () => {
           </ListItemButton>
         </List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/blog">
             <ListItemText primary="BLOG" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/contact">
             <ListItemText primary="CONTACT" />
           </ListItemButton>
         </ListItem>
@@ -113,8 +113,8 @@ const Navbar = () => {
             position: "relative",
           }}
         >
-          <a
-            href="#narasi"
+          <Link
+            to="/"
             style={{
               marginLeft: "20px",
               textDecoration: "none",
@@ -123,9 +123,9 @@ const Navbar = () => {
             }}
           >
             HOME
-          </a>
-          <a
-            href="#narasi"
+          </Link>
+          <Link
+            to="/about"
             style={{
               marginLeft: "20px",
               textDecoration: "none",
@@ -134,11 +134,9 @@ const Navbar = () => {
             }}
           >
             ABOUT US
-          </a>
-
-          {/* PRODUK dropdown */}
+          </Link>
           <div
-            onClick={handleDropdownClick} // Enable dropdown to toggle on click
+            onClick={handleDropdownClick}
             style={{
               position: "relative",
               marginLeft: "20px",
@@ -162,43 +160,42 @@ const Navbar = () => {
                   left: "0",
                   listStyle: "none",
                   padding: "10px",
-                  backgroundColor: "rgba(255, 255, 255, 0.6)", // Warna putih semi-transparan
-                  backdropFilter: "blur(8px)", // Efek blur
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Tambahan shadow untuk estetika
+                  backgroundColor: "rgba(255, 255, 255, 0.6)",
+                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                   fontSize: "10px",
-                  width: "150px", // Adjust the width for better layout
+                  width: "150px",
                 }}
               >
                 <li style={{ marginBottom: "10px" }}>
-                  <a
-                    href="#papan-plafon"
+                  <Link
+                    to="/papan"
                     style={{ textDecoration: "none", color: "#000" }}
                   >
                     PAPAN PLAFON PVC
-                  </a>
+                  </Link>
                 </li>
                 <li style={{ marginBottom: "10px" }}>
-                  <a
-                    href="#list-plafon"
+                  <Link
+                    to="/products#list-plafon"
                     style={{ textDecoration: "none", color: "#000" }}
                   >
                     LIST PLAFON PVC
-                  </a>
+                  </Link>
                 </li>
                 <li style={{ marginBottom: "10px" }}>
-                  <a
-                    href="#ornamen-pvc"
+                  <Link
+                    to="/papan"
                     style={{ textDecoration: "none", color: "#000" }}
                   >
                     ORNAMEN PVC
-                  </a>
+                  </Link>
                 </li>
               </ul>
             )}
           </div>
-
-          <a
-            href="#narasi"
+          <Link
+            to="/blog"
             style={{
               marginLeft: "20px",
               textDecoration: "none",
@@ -207,9 +204,9 @@ const Navbar = () => {
             }}
           >
             BLOG
-          </a>
-          <a
-            href="#narasi"
+          </Link>
+          <Link
+            to="/contact"
             style={{
               marginLeft: "20px",
               textDecoration: "none",
@@ -218,7 +215,7 @@ const Navbar = () => {
             }}
           >
             CONTACT
-          </a>
+          </Link>
         </nav>
       )}
       <Drawer
@@ -227,11 +224,11 @@ const Navbar = () => {
         onClose={toggleDrawer(false)}
         PaperProps={{
           style: {
-            top: isMobile ? "0px" : "64px", // Offset for the navbar
-            backgroundColor: "rgba(255, 255, 255, 0.8)", // Transparansi dengan warna putih
-            backdropFilter: "blur(10px)", // Efek blur untuk latar belakang drawer
-            color: "#000", // Warna teks
-            boxShadow: "0 4px 10px rgba(0,0,0,0.2)", // Tambahkan shadow untuk lebih estetik
+            top: isMobile ? "0px" : "64px",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            backdropFilter: "blur(10px)",
+            color: "#000",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
           },
         }}
       >

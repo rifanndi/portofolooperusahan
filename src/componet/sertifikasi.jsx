@@ -50,7 +50,11 @@ function SertifikatCard() {
         NOW ENJOY A WONDERFUL NEWS UPDATE
       </Typography>
 
-      <Grid container spacing={2} style={{ marginTop: "20px" }}>
+      <Grid
+        container
+        spacing={2}
+        style={{ marginTop: "20px", marginLeft: "0.1" }}
+      >
         {cards.map((card, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Card sx={{ maxWidth: 345, height: "100%" }}>
